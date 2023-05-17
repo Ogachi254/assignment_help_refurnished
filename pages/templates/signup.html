@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+<div class="card w-50 mx-auto mt-5 bg-light">
+  <h2 class="card-header bg-primary text-white">Sign Up</h2>
+  <div class="card-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group row">
+        <label for="{{ form.username.id_for_label }}" class="col-sm-4 col-form-label font-weight-bold">Username</label>
+        <div class="col-sm-8">
+          {{ form.username }}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="{{ form.email.id_for_label }}" class="col-sm-4 col-form-label font-weight-bold">Email address</label>
+        <div class="col-sm-8">
+          {{ form.email }}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="{{ form.password1.id_for_label }}" class="col-sm-4 col-form-label font-weight-bold">Password</label>
+        <div class="col-sm-8">
+          {{ form.password1 }}
+          <small id="passwordHelpBlock" class="form-text text-muted">
+            Your password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+          </small>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="{{ form.password2.id_for_label }}" class="col-sm-4 col-form-label font-weight-bold">Confirm password</label>
+        <div class="col-sm-8">
+          {{ form.password2 }}
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <button type="submit" class="btn btn-primary btn-block mt-3">Sign Up</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const passwordField = document.getElementById('id_password1');
+
+  // Add an event listener to the password field to check its validity on every keyup event
+  passwordField.addEventListener('keyup', () => {
+    const password = passwordField.value;
+    const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{"':;?/>.<,])(?!.*\s).{8,}$/;
+    const passwordHelpBlock = document.getElementById('passwordHelpBlock');
+    
+    if (passwordPattern.test(password)) {
+      passwordField.setCustomValidity('');
+      passwordHelpBlock.classList.remove('text-danger');
+      passwordHelpBlock.classList.add('text-success');
+    } else {
+      passwordField.setCustomValidity('Your password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
+      passwordHelpBlock.classList.remove('text-success');
+      passwordHelpBlock.classList.add('text-danger');
+    }
+  });
+</script>
+{% endblock content %}

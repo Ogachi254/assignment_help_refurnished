@@ -1,0 +1,386 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Home - Assignment Help{% endblock title %}
+
+{% block content %}
+  <h1 class="text-center mt-2 mb-4">ASSIGNMENT HELP</h1>
+  <div class="row">
+    <div class="col-md-6 order-md-2">
+      <form method="post" style="background-color: #fff; padding: 30px;">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="order_title">Order Title/Topic</label>
+          <input type="text" class="form-control" id="order_title" name="order_title" placeholder="Enter order title/topic">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject">
+        </div>
+        <div class="form-group">
+          <label for="deadline">Deadline</label>
+          <input type="date" class="form-control" id="deadline" name="deadline">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-6 order-md-1">
+      <img class="img-fluid" id="banner" src="{% static 'images/assignment help.jpg' %}">
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h1 style="font-weight: bold; color: black;">Benefits of Assignment Paradise</h1>
+      <ul>
+        <li>You should perform better in school.</li>
+        <li>Create promising future elements.</li>
+        <li>Spending free time with your loved ones.</li>
+        <li>Concentrate on your career and side gigs.</li>
+        <li>Spend extra time on your hobbies and focus on your intriguing schoolwork.</li>
+        <li>Get professional writing assistance for your homework from Assignmentsparadise.</li>
+      </ul>
+      <p class="lead">
+        <h1 style="font-weight: bold; color: black;">Only use quality papers</h1>
+        We make sure that your assignment writing receives the best scores possible. Our staff members are dedicated to providing high-quality services that will help you achieve your academic goals.
+
+        <h2 style="font-weight: bold; color: black;">skilled professors with a PhD</h2>
+        We have a group of experienced writers who have worked on papers from many different academic disciplines for a considerable amount of time. The authors and retired professors are knowledgeable enough to ace your homework.
+
+        <h3 style="font-weight: bold; color: black;">Best Homework Writing Assistance</h3>
+        Every student who wants to improve grades and guarantee academic success should use our expert writing service. You may rely on us since we strive to assist students from all around the world by offering the top custom writing services available.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img class="img-fluid" id="people" src="{% static 'images/assignment help B.jpg' %}" style="height:600px;">
+      </div>
+      
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <h1 style="font-weight: bold; color: black;">Cheapest Homework Help Online</h1>
+            <p class="lead">
+              We provide answers to all of your writing-related needs. Our offerings are absolutely unmatched in their beauty and excellence. Every time you trust us with your project, you will obtain uniquely tailored papers of the highest caliber. We have a lot to offer, so explore our website to learn more about the benefits we provide, which include writing services, exceptional and unique quality, displaced instructors, and guarantees.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead">
+              <h1 style="font-weight: bold; color: black;">Help with Writing Homework</h1>
+              <h2 style="font-weight: bold; color: black;">
+                <span style="float: left;">
+                  <i class="fa fa-paper-plane"></i>
+                </span>
+                Send your Order in
+              </h2>
+              Simply fill out our custom order form to send us all the information we need about your assignment to begin your online homework assistance order.
+              
+              <h3 style="font-weight: bold; color: black;">
+                <span style="float: left;">
+                  <i class="fa fa-hand-pointer-o"></i>
+                </span>
+                choose the writer
+              </h3>
+              Writers then submit bids for your order.
+              
+              <h4 style="font-weight: bold; color: black;">
+                <span style="float: left;">
+                  <i class="fa fa-user"></i>
+                </span>
+                Select the author
+              </h4>
+              Examine several writer bids, judge writers based on feedback from their prior work, and select the best.
+              
+              <h5 style="font-weight: bold; color: black;">
+                <span style="float: left;">
+                  <i class="fa fa-graduation-cap"></i>
+                </span>
+                Experts offer a resolution
+              </h5>
+              Every paper we write is distinctive, and we always work to meet your individual requirements. Always knowledgeable in the area you require assistance with, our authors are. We never reuse or sell essays that we have written again.
+              
+              <h6 style="font-weight: bold; color: black;">
+                <span style="float: left;">
+                  <i class="fa fa-download"></i>
+                </span>
+                Download the document
+              </h6>
+              Download the document Download your excellent essay. Request a revision if the answer is subpar (rarely occurs).              
+            </p>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row mt-4">
+            <div class="col-12 assignment-paradise-section" style="background-color: lightblue;">
+              <h1 style="font-weight: bold; color: black;">Assignment Help Solutions for Help</h1>
+              <p class="lead">Along with many other areas, our authors have a wealth of experience. Place your purchase now.</p>
+              <div class="box-form-contents">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                      <p style="margin: 0; padding: 10px;">Essay</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                      <p style="margin: 0; padding: 10px;">Business Plan</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                      <p style="margin: 0; padding: 10px;">Term Papers</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                      <p style="margin: 0; padding: 10px;">Research Papers</p>
+                    </div>
+                  </div>
+                </div>
+        
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                      <p style="margin: 0; padding: 10px;">Personal Statement</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                      <p style="margin: 0; padding: 10px;">Reports</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                      <p style="margin: 0; padding: 10px;">Homework</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                      <p style="margin: 0; padding: 10px;">Book Reviews</p>
+                    </div>
+                  </div>
+                </div>
+        
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                      <p style="margin: 0; padding: 10px;">Q&A</p>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                    <p style="margin: 0; padding: 10px;">Presentation or Speech</p>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                    <p style="margin: 0; padding: 10px;">Speech</p>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                    <div class="listing-box" style="border: 1px solid black; text-align: center; margin-bottom: 10px;">
+                    <p style="margin: 0; padding: 10px;">Course Work</p>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row mt-4" style="background-color: white;">
+                      <div class="col-md-12 text-center">
+                        <h2 style="font-weight: bold; color: black;">Help with Homework at Assignment Help</h2>
+                        <p>
+                          Students must invest a lot of time and energy in their homework writing. Students are worn out from multiple classes and lack motivation to complete their homework. The only option for students who are pressed for time while trying to care for their families and complete their projects is to look for homework writing assistance.
+                          One of the best locations to receive homework help is at Assignmentsparadise. At <a href="https://www.assignmenthelp.com">assignmenthelp.com</a>, we have highly qualified master's and PhD writers who can assist you in finishing your homework and getting an A+.
+                          All academic levels—high school, college, university undergraduate, master's, and PhD—are covered by our services.
+                          Place your order(order link) or contact the Assignmentsparadise writers to receive immediate guidance and assistance with your homework. <a href="{% url 'login' %}">Log In</a> if you already have an account, or <a href="{% url 'signup' %}">Sign Up</a> if you don't.
+                        </p>
+                      </div>
+                    </div>
+          
+                  </div> 
+                  <div class="row mt-4" style="background-color: #000080;">
+                    <div class="col-md-12 text-center">
+                      <h2 style="font-weight: bold; color: white;">Why Use Assignment Help?</h2>
+                      <p style="color: white;">
+                        The company Assignmentshelp has been effectively serving the academic community for more than ten years. Our authors and tutors are the foundation of our success. High caliber unemployed professors are employed by us. Additionally, in order to be hired, all of our scholars must hold a master's or doctoral degree. As a result, <a href="https://www.assignmenthelp.com" style="color: white;">assignmenthelp.com</a> is prepared to offer writing services to any customer, including business and organizational professionals as well as high school, college, and graduate students.
+                      </p>
+                    </div>
+                  
+                    <div class="col-md-3">
+                      <div class="box" style="background-color: #000080; color: white; text-align: center; padding: 20px;">
+                        <i class="fas fa-lock fa-3x" style="color: white; margin-bottom: 10px;"></i>
+                        <h4 style="color: white;">Title 1</h4>
+                        <p style="color: white;">Content for box 1</p>
+                        <a href="#" style="color: white;">Read More(order link)</a>
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-3">
+                      <div class="box" style="background-color: #000080; color: white; text-align: center; padding: 20px;">
+                        <i class="fas fa-cog fa-3x" style="color: white; margin-bottom: 10px;"></i>
+                        <h4 style="color: white;">Title 2</h4>
+                        <p style="color: white;">Content for box 2</p>
+                        <a href="#" style="color: white;">Read More(order link</a>
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-3">
+                      <div class="box" style="background-color: #000080; color: white; text-align: center; padding: 20px;">
+                        <i class="fas fa-chart-bar fa-3x" style="color: white; margin-bottom: 10px;"></i>
+                        <h4 style="color: white;">Title 3</h4>
+                        <p style="color: white;">Content for box 3</p>
+                        <a href="#" style="color: white;">Read More(order link</a>
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-3">
+                      <div class="box" style="background-color: #000080; color: white; text-align: center; padding: 20px;">
+                        <i class="fas fa-graduation-cap fa-3x" style="color: white; margin-bottom: 10px;"></i>
+                        <h4 style="color: white;">Title 4</h4>
+                        <p style="color: white;">Content for box 4</p>
+                        <a href="#" style="color: white;">Read More(order link)</a>
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-12 mt-4">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <h4 style="color: white;">Title 5</h4>
+                          <p style="color: white;">Content for row 1</p>
+                        </div>
+                        <div class="col-md-2">
+                          <h4 style="color: white;">Title 6</h4>
+                          <p style="color: white;">Content for row 2</p>
+                        </div>
+                        <div class="col-md-2">
+                          <h4 style="color: white;">Title 7</h4>
+                          <p style="color: white;">Content for row 3</p>
+                        </div>
+                        <div class="col-md-2">
+                          <h4 style="color: white;">Title 8</h4>
+                          <p style="color: white;">Content for row 4</p>
+                        </div>
+                        <div class="col-md-2">
+                          <h4 style="color: white;">Title 9</h4>
+                          <p style="color: white;">Content for row 5</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col-md-12">
+                      <h2 style="font-weight: bold; color: #ADD8E6; text-align: center;">Ace Homework Now - Do My Homework</h2>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-8">
+                          <p style="color: black;">At <a href="https://www.assignmenthelp.com">assignmenthelp.com</a>, we make sure that our authors give you their very best. We are the most well-known homework assistance website in the world, creating excellent work that is free of plagiarism by the deadline.
+                            At Ace Homework, we make sure you are freed from the stress of spending sleepless hours trying to read and analyze a variety of sources in order to create a quality paper. You can entrust us with your homework and we'll get you an A+ thanks to our outstanding authors. It's just simple - One Click Homework (Order Link )
+                          </p>
+                        </div>
+                        <div class="col-md-4">
+                          <img src="your-image-url.jpg" alt="Image description" style="width: 100%; height: auto;">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h2 style="font-weight: bold; color: black; text-align: center;">AssignmentsHelp Instant Tutoring Service's Subjects Covered</h2>
+                        </div>
+                        <div class="col-md-12">
+                          <p style="text-align: center;">We have a pool of qualified writers with PhDs and master's degrees. Our hiring procedures are rigorous, and we only work with the best writers to assist students with their assignments. Our writers have strong content knowledge and are experts in a variety of fields. The subjects we cover in our on-demand tutoring and homework assistance services are listed below. Don't worry if your subject isn't listed—we still cover it!</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <ul>
+                            <li>Subject 1</li>
+                            <li>Subject 2</li>
+                            <li>Subject 3</li>
+                            <li>Subject 4</li>
+                            <li>Subject 5</li>
+                            <li>Subject 6</li>
+                          </ul>
+                        </div>
+                        <div class="col-md-2">
+                          <ul>
+                            <li>Subject 7</li>
+                            <li>Subject 8</li>
+                            <li>Subject 9</li>
+                            <li>Subject 10</li>
+                            <li>Subject 11</li>
+                            <li>Subject 12</li>
+                          </ul>
+                        </div>
+                        <div class="col-md-2">
+                          <ul>
+                            <li>Subject 13</li>
+                            <li>Subject 14</li>
+                            <li>Subject 15</li>
+                            <li>Subject 16</li>
+                            <li>Subject 17</li>
+                            <li>Subject 18</li>
+                          </ul>
+                        </div>
+                        <div class="col-md-2">
+                          <ul>
+                            <li>Subject 19</li>
+                            <li>Subject 20</li>
+                            <li>Subject 21</li>
+                            <li>Subject 22</li>
+                            <li>Subject 23</li>
+                            <li>Subject 24</li>
+                            </ul>
+                            </div>
+                            <div class="col-md-2">
+                            <ul>
+                            <li>Subject 25</li>
+                            <li>Subject 26</li>
+                            <li>Subject 27</li>
+                            <li>Subject 28</li>
+                            <li>Subject 29</li>
+                            <li>Subject 30</li>
+                            </ul>
+                            </div>
+                            <div class="col-md-2">
+                            <ul>
+                            <li>Subject 31</li>
+                            <li>Subject 32</li>
+                            <li>Subject 33</li>
+                            <li>Subject 34</li>
+                            <li>Subject 35</li>
+                            <li>Subject 36</li>
+                            </ul>
+                            </div>
+                            </div>
+                             </div>
+                            </div>                  
+                            <div class="row" style="background-color: #ADD8E6; padding: 20px; width: 100%; margin-left: 0; margin-right: 0;">
+                              <div class="col-md-12">
+                                <h2 style="font-weight: bold; color: black; text-align: center;">Someone Please Assignment Paradise </h2>
+                              </div>
+                              <div class="col-md-12">
+                                <p style="text-align: center;">Do you find it difficult to complete the homework that is due in a few hours or days? At AssignmentHelp, we provide immediate assistance with writing assignments with only a click of the Order now button. There's no need to stress about meeting the deadline. That homework that needs to be completed within a few hours can be done quickly by our professionals. Our sizable staff of qualified tutors excels in a broad range of areas. We will deliver without trouble, whether you need help with your Math or Physics assignment or with that tricky Chemistry chemical equation.</p>
+                              </div>
+                            </div>
+                            </div>
+                            <div class="row" style="background-color: white; padding: 20px; width: 100%; margin-left: 0; margin-right: 0;">
+                              <div class="col-md-12">
+                                <h2 style="font-weight: bold; color: black; text-align: center;">Make use of Acehomework Services</h2>
+                              </div>
+                              <div class="col-md-12">
+                               <p style="text-align: center;"> Where can I find tutors for my homework? Well, you're where you need to be. Our tutoring services are exceptional and unrivaled. We take great satisfaction in being the industry's top providers of homework assistance. We are aware of how demanding school can be, especially when it's combined with job and sometimes even family obligations.</p>
+                                <p style="text-align: center;">Hire our assignment assistance services to obtain that tranquility. with the family and at work. The hiring procedure is simple and quick. All you have to do is submit your order, communicate with a tutor, receive an offer, accept it, and wait for the answer.</p>
+                              </div>
+                            </div>
+                            </div>
+                                                                                                               
+        {% endblock %}
+        {% block footer %}
+        {% include 'footer.html' %}
+        {% endblock %}          
