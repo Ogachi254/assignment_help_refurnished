@@ -2,8 +2,16 @@
 
 {% block title %}Sign Up{% endblock title %}
 
+{% block head %}
+<style>
+  body {
+    background-color: #007bff; /* Blue background */
+  }
+</style>
+{% endblock head %}
+
 {% block content %}
-<div class="card w-50 mx-auto mt-5 bg-light">
+<div class="card w-75 mx-auto mt-5 bg-light">
   <h2 class="card-header bg-primary text-white">Sign Up</h2>
   <div class="card-body">
     <form method="post">
@@ -52,7 +60,7 @@
     const password = passwordField.value;
     const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{"':;?/>.<,])(?!.*\s).{8,}$/;
     const passwordHelpBlock = document.getElementById('passwordHelpBlock');
-    
+
     if (passwordPattern.test(password)) {
       passwordField.setCustomValidity('');
       passwordHelpBlock.classList.remove('text-danger');
@@ -68,4 +76,4 @@
 
 {% block footer %}
 {% include 'footer.html' %}
-{% endblock %}          
+{% endblock %}
