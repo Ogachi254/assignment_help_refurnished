@@ -1,1 +1,1 @@
-web: gunicorn <core_package_name>.wsgi --log-file -
+web: gunicorn pages_project.wsgi.application.wsgi --log-file -
