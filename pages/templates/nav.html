@@ -1,7 +1,6 @@
 {% load static %}
-
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  At
+  <a class="navbar-brand" href="#">
     <img src="{% static 'images/logo.jpg' %}" alt="Assignment Help Logo" width="30" height="30" class="d-inline-block align-text-top">
     Assignment Help
   </a>
@@ -30,7 +29,7 @@
           <a class="nav-link" href="{% url 'login' %}">Log In</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link small-icon" href="{% url 'signup' %}" style="background-color: #2196F3; color: white; border-radius: 5px; padding: 4px 8px;">Sign Up</a>
+          <a class="nav-link small-icon sign-up" href="{% url 'signup' %}">Sign Up</a>
         </li>
       {% endif %}
     </ul>

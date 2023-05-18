@@ -1,13 +1,14 @@
 /* Global styles */
 body {
-    margin: 0;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-    background-color: #fff
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
 }
 
 .container {
@@ -15,7 +16,7 @@ body {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
-  margin-left: auto
+  margin-left: auto;
 }
 
 .container-fluid {
@@ -23,8 +24,9 @@ body {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
-  margin-left: auto
+  margin-left: auto;
 }
+
 a {
   color: #007bff;
   text-decoration: none;
@@ -56,13 +58,49 @@ nav a {
   margin-right: 16px;
 }
 
-#banner {
-  display: block;
-  margin: 0 auto;
-  height: 400px;
-  width: 80%;
-  object-fit: cover;
-  margin-bottom: 16px;
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.nav-link {
+  font-size: 16px;
+  padding: 8px 12px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #000;
+}
+
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link.small-icon {
+  font-size: 14px;
+  padding: 4px 8px;
+}
+
+.nav-link.sign-up {
+  background-color: #2196F3;
+  color: white;
+  border-radius: 5px;
+}
+
+.nav-link.sign-up:hover {
+  background-color: #0c7cd5;
+}
+
+.navbar {
+  margin-bottom: 20px;
 }
 
 /* Main content styles */
