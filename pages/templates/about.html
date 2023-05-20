@@ -166,34 +166,36 @@
 </div>
 
 
-		<div class="col-md-4">
-		<div class="box" style="background-color: lightblue; padding: 20px;">
-		<form>
-		<div class="form-group">
-		<label for="email">Email</label>
-		<input type="email" class="form-control" id="email" placeholder="Enter email" style="background-color: white;">
-		</div>
-		<div class="form-group">
-		<label for="order-topic">Order Topic</label>
-		<input type="text" class="form-control" id="order-topic" placeholder="Enter order topic" style="background-color: white;">
-		</div>
-		<div class="form-group">
-		<label for="deadline">Deadline</label>
-		<input type="text" class="form-control" id="deadline" placeholder="Enter deadline"
-		
-		style="background-color: white;">
-		</div>
-		<div class="form-group">
-		<label for="instructions">Instructions</label>
-		<textarea class="form-control" id="instructions" rows="4" style="background-color: white;"></textarea>
-		</div>
-		<button type="submit" class="btn btn-primary btn-block">Submit Order</button>
-		</form>
-		</div>
-		</div>
-		
-		  </div>
-		</div>
+<div class="col-md-4">
+  <div class="box" style="background-color: lightblue; padding: 20px;">
+    <form>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" style="background-color: white;">
+      </div>
+      <div class="form-group">
+        <label for="order-topic">Order Title/Topic</label>
+        <input type="text" class="form-control" id="order-topic" placeholder="Enter order topic" style="background-color: white;">
+      </div>
+      <div class="form-group">
+        <label for="deadline">Deadline</label>
+        <input type="datetime-local" class="form-control" id="deadline" name="deadline" style="background-color: white;">
+      </div>
+      <div class="form-group">
+        <label for="instructions">Instructions</label>
+        <textarea class="form-control" id="instructions" rows="4" style="background-color: white;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Submit Order</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Set the value of the deadline field to the current date and time
+  document.getElementById('deadline').value = new Date().toISOString().slice(0, 16);
+</script>
+
+
 		{% endblock content %}
 		{% block footer %}
     {% include 'footer.html' %}

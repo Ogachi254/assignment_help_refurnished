@@ -24,15 +24,33 @@
         </div>
         <div class="form-group">
           <label for="deadline">Deadline</label>
-          <input type="date" class="form-control" id="deadline" name="deadline">
+          <input type="datetime-local" class="form-control" id="deadline" name="deadline">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
     <div class="col-md-6 order-md-1">
-      <img class="img-fluid" id="banner" src="{% static 'images/assignment help.jpg' %}">
+      <img class="img-fluid" id="banner" src="{% static 'images/assignment help.jpg' %}" style="height: 400px;">
     </div>
   </div>
+  
+  <script>
+    // Set the value of the deadline field to the current date and time
+    document.getElementById('deadline').value = new Date().toISOString().slice(0, 16);
+  
+    // Copy the values from "form 2" to "form 1"
+    var form2Email = document.getElementById('email');
+    var form2OrderTitle = document.getElementById('order-topic');
+    var form2Deadline = document.getElementById('deadline');
+    var form1Email = document.getElementById('email');
+    var form1OrderTitle = document.getElementById('order_title');
+    var form1Deadline = document.getElementById('deadline');
+  
+    form1Email.value = form2Email.value;
+    form1OrderTitle.value = form2OrderTitle.value;
+    form1Deadline.value = form2Deadline.value;
+  </script>
+  
   <div class="row mt-4">
     <div class="col-md-6">
       <h1 style="font-weight: bold; color: black;">Benefits of Assignment Paradise</h1>

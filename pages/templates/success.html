@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Form Submitted Successfully!</h1>
+    <p>
+      <span class="icon">&#x1F64F;</span> Thank you for contacting us. We will get back to you soon.
+    </p>
+    <!-- Additional content here -->
+    <div class="scrolling-area">
+      <!-- Content with scrolling -->
+    </div>
+    <div class="image-area">
+      <img src="path/to/your/image.png" alt="Image" />
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include 'footer.html' %}
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="path/to/your/custom.css">
+  <!-- Include any additional CSS files or styles -->
+  <style>
+    .scrolling-area {
+      height: 300px; /* Adjust the height as needed */
+      overflow-y: auto;
+      /* Add any additional styling for the scrolling area */
+    }
+
+    .image-area {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 50%; /* Adjust the width as needed */
+      z-index: -1; /* Ensure the image is behind the content */
+      /* Add any additional styling for the image area */
+    }
+
+    .icon {
+      display: inline-block;
+      margin-right: 10px;
+      /* Add any additional styling for the icon */
+    }
+  </style>
+{% endblock %}
+
+{% block scripts %}
+  <script src="path/to/your/custom.js"></script>
+  <!-- Include any additional JavaScript files or scripts -->
+{% endblock %}
