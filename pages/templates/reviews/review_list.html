@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Reviews</h1>
+  <div class="review-grid">
+    {% for review in reviews %}
+      <div class="review-item">
+        <div class="user-info">
+          {% if review.user_image %}
+            <img src="{{ review.user_image.url }}" alt="User Image" class="review-image">
+          {% endif %}
+          <strong class="review-username">User:</strong> {{ review.user.username }}
+        </div>
+        <strong>Stars:</strong>
+        {% for _ in review.stars|default:0 %}
+          <i class="fas fa-star"></i>
+        {% endfor %}
+        <br>
+        <strong>Number of Stars:</strong> {{ review.stars|default:"0" }}
+        <br>
+        <strong>Comment:</strong> {{ review.comment }}<br>
+        <strong>Created At:</strong> {{ review.created_at }}<br>
+        <div class="comment-image-container">
+          {% if review.comment_image %}
+            <img src="{{ review.comment_image.url }}" alt="Comment Image" class="comment-image">
+          {% endif %}
+        </div>
+      </div>
+    {% empty %}
+      <div class="no-reviews">No reviews available.</div>
+    {% endfor %}
+  </div>
+
+  <style>
+    .review-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: -10px; /* Negative margin to counteract the padding */
+    }
+    .review-item {
+      flex-basis: calc(33.33% - 20px);
+      box-sizing: border-box;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+    }
+    .review-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .review-username {
+      color: #008080; /* Custom color for username */
+    }
+    .comment-image-container {
+      position: relative;
+      height: 0;
+      padding-top: 100%; /* Maintain 1:1 aspect ratio */
+      overflow: hidden;
+    }
+    .comment-image-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure the image fills the container */
+    }
+    @media (max-width: 768px) {
+      .review-item {
+        flex-basis: 100%;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block footer %}
+  {% include 'footer.html' %}
+{% endblock %}

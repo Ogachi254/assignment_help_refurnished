@@ -26,6 +26,12 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}" style="color: #F2F2F2;">Log Out</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'reviews:review_create' %}" style="color: #F2F2F2;">Create Review</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'reviews:review_list' %}" style="color: #F2F2F2;">View Reviews</a>
+        </li>
       {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'login' %}" style="color: #F2F2F2;">Log In</a>
