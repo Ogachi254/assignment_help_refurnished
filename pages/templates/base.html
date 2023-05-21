@@ -30,7 +30,7 @@
   {% endblock %}
   
   <div class="chat-popup" id="myChatPopup">
-    <form class="chat-form" method="post" action="{% url 'contact' %}">
+    <form class="chat-form" method="post" action="{% url 'save_contact' %}">
       {% csrf_token %}
       <h3>Send us a message</h3>
       <label for="name">Name:</label>

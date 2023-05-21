@@ -8,7 +8,7 @@
   <h1 class="text-center mt-2 mb-4">ASSIGNMENT HELP</h1>
   <div class="row">
     <div class="col-md-6 order-md-2">
-      <form method="post" style="background-color: #fff; padding: 30px;">
+      <form method="POST" action="{% url 'save_order' %}" enctype="multipart/form-data" style="background-color: #fff; padding: 30px;">
         {% csrf_token %}
         <div class="form-group">
           <label for="email">Email</label>
@@ -26,9 +26,25 @@
           <label for="deadline">Deadline</label>
           <input type="datetime-local" class="form-control" id="deadline" name="deadline">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group">
+          <label for="instructions">Instructions</label>
+          <textarea class="form-control" id="instructions" name="instructions" rows="4" placeholder="Enter instructions"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="documents">Document Upload</label>
+          <input type="file" class="form-control-file" id="documents" name="documents[]" multiple>
+        </div>
+        <div class="form-group">
+          <label for="images">Image Upload</label>
+          <input type="file" class="form-control-file" id="images" name="images[]" multiple>
+        </div>
+        <div class="form-group">
+          <label for="folders">Folder Upload (as zip files)</label>
+          <input type="file" class="form-control-file" id="folders" name="folders[]" multiple>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Order</button>
       </form>
-    </div>
+    </div>       
     <div class="col-md-6 order-md-1">
       <img class="img-fluid" id="banner" src="{% static 'images/assignment help.jpg' %}" style="height: 400px;">
     </div>

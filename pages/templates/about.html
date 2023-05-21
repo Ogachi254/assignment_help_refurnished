@@ -165,17 +165,21 @@
   </div>
 </div>
 
-
 <div class="col-md-4">
   <div class="box" style="background-color: lightblue; padding: 20px;">
-    <form>
+    <form method="POST" action="{% url 'save_order' %}" enctype="multipart/form-data">
+      {% csrf_token %}
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" style="background-color: white;">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" style="background-color: white;">
       </div>
       <div class="form-group">
         <label for="order-topic">Order Title/Topic</label>
-        <input type="text" class="form-control" id="order-topic" placeholder="Enter order topic" style="background-color: white;">
+        <input type="text" class="form-control" id="order-topic" name="order_title" placeholder="Enter order topic" style="background-color: white;">
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject" style="background-color: white;">
       </div>
       <div class="form-group">
         <label for="deadline">Deadline</label>
@@ -183,7 +187,19 @@
       </div>
       <div class="form-group">
         <label for="instructions">Instructions</label>
-        <textarea class="form-control" id="instructions" rows="4" style="background-color: white;"></textarea>
+        <textarea class="form-control" id="instructions" name="instructions" rows="4" style="background-color: white;"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="documents">Document Upload</label>
+        <input type="file" class="form-control-file" id="documents" name="documents[]" multiple>
+      </div>
+      <div class="form-group">
+        <label for="images">Image Upload</label>
+        <input type="file" class="form-control-file" id="images" name="images[]" multiple>
+      </div>
+      <div class="form-group">
+        <label for="folders">Folder Upload (as zip files)</label>
+        <input type="file" class="form-control-file" id="folders" name="folders[]" multiple>
       </div>
       <button type="submit" class="btn btn-primary btn-block">Submit Order</button>
     </form>
@@ -194,6 +210,7 @@
   // Set the value of the deadline field to the current date and time
   document.getElementById('deadline').value = new Date().toISOString().slice(0, 16);
 </script>
+
 
 
 		{% endblock content %}

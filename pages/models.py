@@ -8,3 +8,10 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+class Order(models.Model):
+    email = models.EmailField()
+    order_title = models.CharField(max_length=255, default='Default Title')
+    subject = models.CharField(max_length=255)
+    deadline = models.DateTimeField()
+

@@ -1,11 +1,17 @@
-from django.urls import path, include
-from .views import HomePageView, AboutPageView, contact_view, ContactView, success_page
+from django.urls import path
+from .views import (
+    HomePageView,
+    AboutPageView,
+    ContactView,
+    OrderView,
+    success_page,
+)
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    path('success/', success_page, name='success_page'),
-    path('contact/', ContactView.as_view(), name='save_contact'),
-    path('contact/', contact_view.as_view(), name='contact'),
-    path('about/', AboutPageView.as_view(), name='about'), 
     path('', HomePageView.as_view(), name='home'),
-    path('accounts/', include('django.contrib.auth.urls')),  # Include authentication URLs
+    path('about/', AboutPageView.as_view(), name='about'),
+    path('contact/', ContactView.as_view(), name='save_contact'),
+    path('order/', login_required(OrderView.as_view()), name='save_order'),
+    path('success/', success_page, name='success_page'),
 ]
