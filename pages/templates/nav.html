@@ -1,6 +1,22 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-Ǔ">
+<style>
+  .order-link {
+    background-color: #003399;
+    color: #F2F2F2 !important;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .order-link:hover {
+    text-decoration: none;
+    background-color: #002580;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
   <a class="navbar-brand" href="#">
     <img src="{% static 'images/logo.jpg' %}" alt="Assignment Help Logo" width="30" height="30" class="d-inline-block align-text-top">
     <span class="brand-text" style="color: #c0392b;">Assignment Help</span>
@@ -40,6 +56,9 @@
           <a class="nav-link btn btn-primary" href="{% url 'signup' %}" style="background-color: #003399;">Sign Up</a>
         </li>
       {% endif %}
+      <li class="nav-item">
+        <a class="nav-link order-link" href="{% url 'save_order' %}">Order</a>
+      </li>
     </ul>
   </div>
 </nav>
