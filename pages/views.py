@@ -17,10 +17,10 @@ class ContactView(LoginRequiredMixin, View):
         return render(request, 'contact.html')
 
     def post(self, request):
-        name = request.POST['name']
-        email = request.POST['email']
-        subject = request.POST['subject']
-        message = request.POST['message']
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
 
         contact = Contact(name=name, email=email, subject=subject, message=message)
         contact.save()
@@ -34,20 +34,26 @@ class OrderView(LoginRequiredMixin, View):
         return render(request, 'order.html')
 
     def post(self, request):
-        email = request.POST['email']
-        order_title = request.POST['order_title']
-        subject = request.POST['subject']
-        deadline = request.POST['deadline']
-
+        email = request.POST.get('email')
+        order_title = request.POST.get('order_title')
+        subject = request.POST.get('subject')
+        deadline = request.POST.get('deadline')
+        instructions = request.POST.get('instructions')
+        documents = request.FILES.get('documents')
+        images = request.FILES.get('images')
+        folders = request.FILES.get('folders')
 
         order = Order(
             email=email,
             order_title=order_title,
             subject=subject,
             deadline=deadline,
+            instructions=instructions,
+            documents=documents,
+            images=images,
+            folders=folders
         )
         order.save()
-
 
         return redirect('success_page')
 
