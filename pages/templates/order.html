@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 <div class="row">
     <div class="col-md-6 offset-md-1">
@@ -10,22 +12,186 @@
                     <label for="order_title">Order Title/Topic</label>
                     <input type="text" class="form-control" id="order_title" name="order_title" placeholder="Enter order title/topic">
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label for="subject">Subject</label>
+                        <select class="form-control" id="subject" name="subject">
+                            <option value="">Select a subject</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Biology">Biology</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Engineering">Engineering (e.g., Mechanical, Civil, Electrical)</option>
+                            <option value="Business Administration">Business Administration</option>
+                            <option value="Economics">Economics</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Psychology">Psychology</option>
+                            <option value="Sociology">Sociology</option>
+                            <option value="English Literature">English Literature</option>
+                            <option value="History">History</option>
+                            <option value="Political Science">Political Science</option>
+                            <option value="Philosophy">Philosophy</option>
+                            <option value="Fine Arts">Fine Arts</option>
+                            <option value="Music">Music</option>
+                            <option value="Languages">Languages (e.g., English, French, Spanish, German)</option>
+                            <option value="English Language">English Language</option>
+                            <option value="Literature in English">Literature in English</option>
+                            <option value="Geography">Geography</option>
+                            <option value="Foreign Languages">Foreign Languages (e.g., French, Spanish)</option>
+                            <option value="Commerce">Commerce</option>
+                            <option value="Art and Design">Art and Design</option>
+                            <option value="Physical Education">Physical Education</option>
+                            <option value="Religious Studies">Religious Studies</option>
+                            <option value="Home Economics">Home Economics</option>
+                            <option value="Design and Technology">Design and Technology</option>
+                            <option value="Social Studies">Social Studies</option>
+                            <option value="Information and Communication Technology">Information and Communication Technology (ICT)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="paper_title">Type of Paper</label>
+                        <select class="form-control" id="paper_title" name="paper_title">
+                            <option value="">Select type of paper</option>
+                            <option value="Essay">Essay</option>
+                            <option value="Research Paper">Research Paper</option>
+                            <option value="Term Paper">Term Paper</option>
+                            <option value="Thesis">Thesis</option>
+                            <option value="Dissertation">Dissertation</option>
+                            <option value="Lab Report">Lab Report</option>
+                            <option value="Case Study">Case Study</option>
+                            <option value="Literature Review">Literature Review</option>
+                            <option value="Argumentative Essay">Argumentative Essay</option>
+                            <option value="Persuasive Essay">Persuasive Essay</option>
+                            <option value="Expository Essay">Expository Essay</option>
+                            <option value="Narrative Essay">Narrative Essay</option>
+                            <option value="Reflective Essay">Reflective Essay</option>
+                            <option value="Comparative Essay">Comparative Essay</option>
+                            <option value="Descriptive Essay">Descriptive Essay</option>
+                            <option value="Analytical Essay">Analytical Essay</option>
+                            <option value="Critical Analysis">Critical Analysis</option>
+                            <option value="Position Paper">Position Paper</option>
+                            <option value="White Paper">White Paper</option>
+                            <option value="Technical Report">Technical Report</option>
+                            <option value="Business Report">Business Report</option>
+                            <option value="Proposal">Proposal</option>
+                            <option value="Annotated Bibliography">Annotated Bibliography</option>
+                            <option value="Review Article">Review Article</option>
+                            <option value="Book Review">Book Review</option>
+                            <option value="Speech or Presentation">Speech or Presentation</option>
+                            <option value="Curriculum Vitae (CV)">Curriculum Vitae (CV)</option>
+                            <option value="Cover Letter">Cover Letter</option>
+                            <option value="Personal Statement">Personal Statement</option>
+                            <option value="Admission Essay">Admission Essay</option>
+                            <option value="Statement of Purpose">Statement of Purpose</option>
+                            <option value="Creative Writing">Creative Writing (Short Story, Poem, etc.)</option>
+                            <option value="Professional Article">Professional Article</option>
+                            <option value="Policy Brief">Policy Brief</option>
+                            <option value="Project Report">Project Report</option>
+                            <option value="Field Report">Field Report</option>
+                            <option value="Progress Report">Progress Report</option>
+                            <option value="Training Manual">Training Manual</option>
+                            <option value="Instruction Manual">Instruction Manual</option>
+                            <option value="Research Proposal">Research Proposal</option>
+                        </select>
+                    </div>                    
                 </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject">
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="academic_level">Academic Level</label>
+                            <select class="form-control" id="academic_level" name="academic_level">
+                                <option value="college">College</option>
+                                <option value="masters">Masters</option>
+                                <option value="phd">PhD</option>
+                                <option value="postgraduate">Postgraduate</option>
+                                <option value="undergraduate">Undergraduate</option>
+                                <option value="olevel">O-level</option>
+                                <option value="others">Others</option>
+                            </select>
+                        </div>                        
+                        </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="language">Language</label>
+                            <select class="form-control" id="language" name="language">
+                                <option value="english_australia">English (Australia)</option>
+                                <option value="english_uk">English (UK)</option>
+                                <option value="english_us">English (US)</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>                        
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="formatting_style">Formatting Style</label>
+                            <select class="form-control" id="formatting_style" name="formatting_style">
+                                <option value="APA">APA</option>
+                                <option value="Chicago">Chicago</option>
+                                <option value="Harvard">Harvard</option>
+                                <option value="IEEE">IEEE</option>
+                                <option value="MLA">MLA</option>
+                                <option value="Oscola">Oscola</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>                        
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="deadline">Deadline</label>
-                    <input type="datetime-local" class="form-control" id="deadline" name="deadline">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="pages">Pages</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="pages" name="pages" min="1" max="Infinity">
+                            </div>
+                        </div>                        
+                        </div>
+                    <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="order_title2">Sources</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="pages" name="pages" min="1" max="Infinity">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="deadline">Deadline</label>
+                            <input type="datetime-local" class="form-control" id="deadline" name="deadline">
+                        </div>
+                    </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="budget">Budget $</label>
+                    <select class="form-control" id="budget" name="budget">
+                        <option value="">Select budget range</option>
+                        <option value="15-30">$15 - $30</option>
+                        <option value="35-50">$35 - $50</option>
+                        <option value="55-75">$55 - $75</option>
+                        <option value="80-100">$80 - $100</option>
+                        <option value="120-150">$120 - $150</option>
+                        <option value="160-180">$160 - $180</option>
+                        <option value="200-250">$200 - $250</option>
+                        <option value="255-300">$255 - $300</option>
+                        <option value="350-400">$350 - $400</option>
+                        <option value="405-450">$405 - $450</option>
+                        <option value="455-500">$455 - $500</option>
+                        <option value="505-550">$505 - $550</option>
+                        <option value="over-600">Over $600</option>
+                    </select>
+                </div>                
+
                 <div class="form-group">
                     <label for="instructions">Instructions</label>
                     <textarea class="form-control" id="instructions" name="instructions" rows="4" placeholder="Enter instructions"></textarea>
-                </div>
+                  </div>
+                
                 <div class="form-group">
                     <label for="documents">Document Upload</label>
                     <input type="file" class="form-control-file" id="documents" name="documents[]" multiple>
@@ -38,7 +204,146 @@
                     <label for="folders">Folder Upload (as zip files)</label>
                     <input type="file" class="form-control-file" id="folders" name="folders[]" multiple>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit Order</button>
+
+                <h4>Additional Services</h4>
+                <p style="color: red;">Once you create your order, you can attach additional materials and files:</p>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box" style="background-color: lightblue; padding: 20px;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="select-label" style="display: flex; align-items: center;">
+                                        <input type="checkbox" class="select-checkbox" style="margin-right: 10px;">
+                                        <span class="select-icon"></span>
+                                    </label>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 style="margin: 0;">Top Writer</h5>
+                                    <p>97.9% of user consider this service to be useful</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>$15.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box" style="background-color: lightblue; padding: 20px;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="select-label" style="display: flex; align-items: center;">
+                                        <input type="checkbox" class="select-checkbox" style="margin-right: 10px;">
+                                        <span class="select-icon"></span>
+                                    </label>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 style="margin: 0;">Plagiarism Report</h5>
+                                    <p>96.9% of user consider this service to be useful</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>$12.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box" style="background-color: lightblue; padding: 20px;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="select-label" style="display: flex; align-items: center;">
+                                        <input type="checkbox" class="select-checkbox" style="margin-right: 10px;">
+                                        <span class="select-icon"></span>
+                                    </label>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 style="margin: 0;">Make my Order High Priority</h5>
+                                    <p>90.9% of user consider this service to be useful</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>$25.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box" style="background-color: lightblue; padding: 20px;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="select-label" style="display: flex; align-items: center;">
+                                        <input type="checkbox" class="select-checkbox" style="margin-right: 10px;">
+                                        <span class="select-icon"></span>
+                                    </label>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 style="margin: 0;">Copy of Sources</h5>
+                                    <p>89.9% of user consider this service to be useful</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>$11.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box" style="background-color: lightblue; padding: 20px;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="select-label" style="display: flex; align-items: center;">
+                                        <input type="checkbox" class="select-checkbox" style="margin-right: 10px;">
+                                        <span class="select-icon"></span>
+                                    </label>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 style="margin: 0;">Deadline Guaranteed</h5>
+                                    <p>95.9% of user consider this service to be useful</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>$12.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box" style="background-color: lightblue; padding: 20px;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="select-label" style="display: flex; align-items: center;">
+                                        <input type="checkbox" class="select-checkbox" style="margin-right: 10px;">
+                                        <span class="select-icon"></span>
+                                    </label>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 style="margin: 0;">Grammarly Report</h5>
+                                    <p>95.9% of user consider this service to be useful</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>$10.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit" class="btn btn-primary btn-yellow">Submit Order</button>
+                </div>                
             </form>
         </div>
     </div>
@@ -49,7 +354,7 @@
                     <div class="step">
                         <h4><span class="bullet">&#8226;</span> Step 1 </h4>
                         <p style="color: black; font-weight: bold; text-align: center;"> Place Order</p>
-                        <p>Upload your order instructions and attach necessary files and state deadline.</p>
+                        <p>Upload your order instructions and attach necessary files and state the deadline.</p>
                     </div>
                     <div class="step">
                         <h4><span class="bullet">&#8226;</span> Step 2</h4>
@@ -57,14 +362,14 @@
                         <p>Our professional writers will read your order instructions and they will place their bids/quotes for free.</p>
                     </div>
                     <div class="step">
-                        <h4><span class="bullet">&#8226;</span>Step 3</h4>
+                        <h4><span class="bullet">&#8226;</span> Step 3</h4>
                         <p style="color: black; font-weight: bold; text-align: center;"> Assign</p>
                         <p>Choose the best writer for you and assign them your order. The writer will start working on your order immediately.</p>
                     </div>
                     <div class="step">
-                        <h4><span class="bullet">&#8226;</span>Step 4</h4>
+                        <h4><span class="bullet">&#8226;</span> Step 4</h4>
                         <p style="color: black; font-weight: bold; text-align: center;"> Download Solution</p>
-                        <p >Once our writter finish and upload 100% original work, you can download it and submit to the professor.</p>
+                        <p>Once our writer finishes and uploads 100% original work, you can download it and submit it to the professor.</p>
                     </div>
                 </div>
             </div>
