@@ -6,6 +6,10 @@
     <form method="post" enctype="multipart/form-data" style="background-color: #f2f2f2; padding: 20px; width: 400px;">
       {% csrf_token %}
       {{ form.as_p }}
+      <div class="form-group">
+        <label for="images">Images</label>
+        <input type="file" class="form-control-file" id="images" name="images[]" multiple accept="image/*">
+      </div>
       <div style="display: flex; justify-content: center; margin-top: 10px;">
         <button type="submit" style="background-color: #003399; color: white; border: none; padding: 10px 20px; cursor: pointer;">Submit</button>
       </div>

@@ -7,12 +7,12 @@
             <form method="POST" action="{% url 'save_order' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-                </div>
-                <div class="form-group">
                     <label for="order_title">Order Title/Topic</label>
                     <input type="text" class="form-control" id="order_title" name="order_title" placeholder="Enter order title/topic">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject</label>
@@ -48,23 +48,23 @@
                 <div class="box" style="background-color: #f7f7f7; padding: 30px; border: 1px solid #ccc;">
                     <div class="step">
                         <h4><span class="bullet">&#8226;</span> Step 1 </h4>
-                        <p> Title of Step 1</p>
-                        <p>Description of step 1.</p>
+                        <p style="color: black; font-weight: bold; text-align: center;"> Place Order</p>
+                        <p>Upload your order instructions and attach necessary files and state deadline.</p>
                     </div>
                     <div class="step">
                         <h4><span class="bullet">&#8226;</span> Step 2</h4>
-                        <p> Title of Step 2</p>
-                        <p>Description of step 2.</p>
+                        <p style="color: black; font-weight: bold; text-align: center;"> Get Free Quotes</p>
+                        <p>Our professional writers will read your order instructions and they will place their bids/quotes for free.</p>
                     </div>
                     <div class="step">
                         <h4><span class="bullet">&#8226;</span>Step 3</h4>
-                        <p> Title of Step 3</p>
-                        <p>Description of step 3.</p>
+                        <p style="color: black; font-weight: bold; text-align: center;"> Assign</p>
+                        <p>Choose the best writer for you and assign them your order. The writer will start working on your order immediately.</p>
                     </div>
                     <div class="step">
                         <h4><span class="bullet">&#8226;</span>Step 4</h4>
-                        <p> Title of Step 4</p>
-                        <p>Description of step 4.</p>
+                        <p style="color: black; font-weight: bold; text-align: center;"> Download Solution</p>
+                        <p >Once our writter finish and upload 100% original work, you can download it and submit to the professor.</p>
                     </div>
                 </div>
             </div>
@@ -72,6 +72,7 @@
     </div>
 </div>
 {% endblock %}
+
 {% block footer %}
 {% include 'footer.html' %}
-{% endblock %}       
+{% endblock %}
