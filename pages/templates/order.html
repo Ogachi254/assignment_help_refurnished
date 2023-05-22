@@ -1,47 +1,77 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    <form method="POST" action="{% url 'save_order' %}" enctype="multipart/form-data" style="background-color: #fff; padding: 30px;">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+<div class="row">
+    <div class="col-md-6 offset-md-1">
+        <div class="box" style="background-color: #fff; padding: 30px; border: 1px solid #ccc;">
+            <form method="POST" action="{% url 'save_order' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="order_title">Order Title/Topic</label>
+                    <input type="text" class="form-control" id="order_title" name="order_title" placeholder="Enter order title/topic">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject">
+                </div>
+                <div class="form-group">
+                    <label for="deadline">Deadline</label>
+                    <input type="datetime-local" class="form-control" id="deadline" name="deadline">
+                </div>
+                <div class="form-group">
+                    <label for="instructions">Instructions</label>
+                    <textarea class="form-control" id="instructions" name="instructions" rows="4" placeholder="Enter instructions"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="documents">Document Upload</label>
+                    <input type="file" class="form-control-file" id="documents" name="documents[]" multiple>
+                </div>
+                <div class="form-group">
+                    <label for="images">Image Upload</label>
+                    <input type="file" class="form-control-file" id="images" name="images[]" multiple>
+                </div>
+                <div class="form-group">
+                    <label for="folders">Folder Upload (as zip files)</label>
+                    <input type="file" class="form-control-file" id="folders" name="folders[]" multiple>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Order</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="order_title">Order Title/Topic</label>
-            <input type="text" class="form-control" id="order_title" name="order_title" placeholder="Enter order title/topic">
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box" style="background-color: #f7f7f7; padding: 30px; border: 1px solid #ccc;">
+                    <div class="step">
+                        <h4><span class="bullet">&#8226;</span> Step 1 </h4>
+                        <p> Title of Step 1</p>
+                        <p>Description of step 1.</p>
+                    </div>
+                    <div class="step">
+                        <h4><span class="bullet">&#8226;</span> Step 2</h4>
+                        <p> Title of Step 2</p>
+                        <p>Description of step 2.</p>
+                    </div>
+                    <div class="step">
+                        <h4><span class="bullet">&#8226;</span>Step 3</h4>
+                        <p> Title of Step 3</p>
+                        <p>Description of step 3.</p>
+                    </div>
+                    <div class="step">
+                        <h4><span class="bullet">&#8226;</span>Step 4</h4>
+                        <p> Title of Step 4</p>
+                        <p>Description of step 4.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject">
-        </div>
-        <div class="form-group">
-            <label for="deadline">Deadline</label>
-            <input type="datetime-local" class="form-control" id="deadline" name="deadline">
-        </div>
-        <div class="form-group">
-            <label for="instructions">Instructions</label>
-            <textarea class="form-control" id="instructions" name="instructions" rows="4" placeholder="Enter instructions"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="documents">Document Upload</label>
-            <input type="file" class="form-control-file" id="documents" name="documents[]" multiple>
-        </div>
-        <div class="form-group">
-            <label for="images">Image Upload</label>
-            <input type="file" class="form-control-file" id="images" name="images[]" multiple>
-        </div>
-        <div class="form-group">
-            <label for="folders">Folder Upload (as zip files)</label>
-            <input type="file" class="form-control-file" id="folders" name="folders[]" multiple>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Order</button>
-    </form>
+    </div>
 </div>
 {% endblock %}
-
-
-        {% block footer %}
-        {% include 'footer.html' %}
-        {% endblock %} 
+{% block footer %}
+{% include 'footer.html' %}
+{% endblock %}       
