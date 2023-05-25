@@ -8,7 +8,7 @@ class ReviewListView(LoginRequiredMixin, ListView):
     model = Review
     template_name = 'reviews/review_list.html'
     context_object_name = 'reviews'
-    login_url = '/accounts/login/'  
+    login_url = '/accounts/login/'
 
 class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = Review
@@ -16,7 +16,7 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
     template_name = 'reviews/review_create.html'
     success_url = '/'
     context_object_name = 'create'
-    login_url = '/accounts/login/'  
+    login_url = '/accounts/login/'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
