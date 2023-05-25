@@ -14,8 +14,8 @@
           <p>Posted by: {{ post.user.username }}</p>
           <p>{{ post.text }}</p>
           {% if post.image %}
-            <div style="max-width: 100%;">
-              <img src="{{ post.image.url }}" alt="Post Image" style="max-width: 100%;">
+            <div class="image-container">
+              <img src="{{ post.image.url }}" alt="Post Image" class="post-image img-fluid">
             </div>
           {% endif %}
         </div>
@@ -32,4 +32,43 @@
 
 {% block footer %}
 {% include 'footer.html' %}
+{% endblock %}
+
+{% block styles %}
+<style>
+  /* Add your custom CSS styles here */
+  
+  body {
+    background-color: #f2f2f2;
+  }
+  
+  .post {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .image-container {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .post-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+</style>
 {% endblock %}

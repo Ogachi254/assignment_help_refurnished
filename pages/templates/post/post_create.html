@@ -5,17 +5,58 @@
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group">
-      <label for="text">Text:</label>
       {{ form.text }}
     </div>
     <div class="form-group">
-      <label for="image">Image:</label>
       {{ form.image }}
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
   </form>
 {% endblock %}
 
 {% block footer %}
 {% include 'footer.html' %}
+{% endblock %}
+
+{% block styles %}
+<style>
+  /* Add your custom CSS styles here */
+
+  /* Adjust the form layout for smaller screens */
+  @media (max-width: 768px) {
+    .form-group {
+      margin-bottom: 10px;
+    }
+    
+    .btn-primary {
+      font-size: 14px;
+      padding: 8px 20px;
+    }
+
+    .text-center {
+      margin-top: 10px;
+    }
+  }
+
+  /* Make the form resizable and flexible */
+  .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 25px;
+  }
+
+  .text-center {
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+</style>
 {% endblock %}
