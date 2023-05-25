@@ -36,7 +36,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link home-link" href="{% url 'home' %}" style="color: #F2F2F2;">Home</a>
       </li>
@@ -48,44 +48,28 @@
       </li>
       {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}" style="color: #F2F2F2;">Log Out</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{% url 'reviews:review_create' %}" style="color: #F2F2F2;">Create Review</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'reviews:review_list' %}" style="color: #F2F2F2;">View Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}" style="color: #F2F2F2;">Log Out</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'post:post_list' %}" style="color: #F2F2F2;">Post List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'post:post_create' %}" style="color: #F2F2F2;">Create Post</a>
         </li>
       {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'login' %}" style="color: #F2F2F2;">Log In</a>
         </li>
       {% endif %}
-      
-      <!-- Add the 'post_list' URL -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'post:post_list' %}" style="color: #F2F2F2;">Post List</a>
+        <a class="nav-link order-link btn btn-primary" href="{% url 'save_order' %}">Order</a>
       </li>
-
-      <!-- Add the 'post_create' URL -->
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'post:post_create' %}" style="color: #F2F2F2;">Create Post</a>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav ml-auto">
-      {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link order-link btn btn-primary" href="{% url 'save_order' %}">Order</a>
-        </li>
-      {% else %}
-        <li class="nav-item">
-          <a class="nav-link btn btn-primary" href="{% url 'signup' %}" style="background-color: #003399;">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link order-link btn btn-primary" href="{% url 'save_order' %}">Order</a>
-        </li>
-      {% endif %}
     </ul>
   </div>
 </nav>
