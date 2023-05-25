@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Assignment Help{% endblock %}
+
+{% block content %}
+  <h1>Welcome to Assignment Help!</h1>
+  <p>Get expert assistance with your assignments.</p>
+  
+  <h2>Recent Posts</h2>
+  <div class="row">
+    {% for post in posts %}
+      <div class="col-md-4">
+        <div class="post">
+          <p>Posted by: {{ post.user.username }}</p>
+          <p>{{ post.text }}</p>
+          {% if post.image %}
+            <div style="max-width: 100%;">
+              <img src="{{ post.image.url }}" alt="Post Image" style="max-width: 100%;">
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% empty %}
+      <p>No posts available.</p>
+    {% endfor %}
+  </div>
+  
+  <h2>Have a question?</h2>
+  <p>Feel free to ask for help or share your insights!</p>
+  <a href="{% url 'save_contact' %}" class="btn btn-primary">Ask a Question</a>
+{% endblock %}
+
+{% block footer %}
+{% include 'footer.html' %}
+{% endblock %}

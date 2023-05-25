@@ -31,8 +31,10 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'reviews.apps.ReviewsConfig',
+    'posts.apps.PostsConfig', 
 
      'crispy_forms',
+      'imagekit',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
