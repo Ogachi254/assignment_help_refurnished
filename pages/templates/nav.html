@@ -1,25 +1,59 @@
 {% load static %}
 
 <style>
+  /* Existing styles... */
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-brand img {
+    margin-right: 5px;
+  }
+
+  .brand-text {
+    color: #c0392b;
+  }
+
+  .navbar-nav {
+    margin-left: auto;
+  }
+
+  .nav-link {
+    margin: 0 10px;
+  }
+
   .order-link {
+    margin-left: 20px;
     background-color: #003399;
-    color: #F2F2F2 !important;
-    padding: 8px 16px;
-    border-radius: 4px;
   }
 
   .order-link:hover {
-    text-decoration: none;
-    background-color: #002580;
+    background-color: #003399; /* Set the hover color if desired */
   }
 
-  .signup-link {
-    margin-top: 8px;
+  .nav-item:last-child .nav-link {
+    margin-right: 0;
   }
 
   @media (max-width: 767.98px) {
     .signup-link {
       margin-top: 16px;
+    }
+
+    .navbar-nav {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .nav-item {
+      margin-bottom: 10px;
+    }
+
+    .order-link {
+      margin-left: 0;
+      margin-top: 10px;
     }
   }
 </style>
@@ -27,7 +61,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
   <a class="navbar-brand" href="#">
     <img src="{% static 'images/logo.jpg' %}" alt="Assignment Help Logo" width="30" height="30" class="d-inline-block align-text-top">
-    <span class="brand-text" style="color: #c0392b;">Assignment Help</span>
+    <span class="brand-text">Assignment Help</span>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarNav" aria-controls="navbarNav"
@@ -38,33 +72,36 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link home-link" href="{% url 'home' %}" style="color: #F2F2F2;">Home</a>
+        <a class="nav-link home-link" href="{% url 'home' %}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link about-link" href="{% url 'about' %}" style="color: #F2F2F2;">About</a>
+        <a class="nav-link about-link" href="{% url 'about' %}">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link contact-link" href="{% url 'save_contact' %}" style="color: #F2F2F2;">Contact Us</a>
+        <a class="nav-link contact-link" href="{% url 'save_contact' %}">Contact Us</a>
       </li>
       {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'reviews:review_create' %}" style="color: #F2F2F2;">Create Review</a>
+          <a class="nav-link" href="{% url 'reviews:review_create' %}">Create Review</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'reviews:review_list' %}" style="color: #F2F2F2;">View Reviews</a>
+          <a class="nav-link" href="{% url 'reviews:review_list' %}">View Reviews</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}" style="color: #F2F2F2;">Log Out</a>
+          <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'post:post_list' %}" style="color: #F2F2F2;">Post List</a>
+          <a class="nav-link" href="{% url 'post:post_list' %}">Post List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'post:post_create' %}" style="color: #F2F2F2;">Create Post</a>
+          <a class="nav-link" href="{% url 'post:post_create' %}">Create Post</a>
         </li>
       {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}" style="color: #F2F2F2;">Log In</a>
+          <a class="nav-link" href="{% url 'login' %}">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link signup-link" href="{% url 'signup' %}">Sign Up</a>
         </li>
       {% endif %}
       <li class="nav-item">

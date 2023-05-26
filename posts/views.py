@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import user_passes_test
 from .models import Post
 from .forms import PostForm
+
+def admin_check(user):
+    return user.is_superuser
 
 @login_required(login_url='/accounts/login/')
 def post_list(request):
@@ -23,6 +27,7 @@ def post_create(request):
     return render(request, 'post/post_create.html', {'form': form})
 
 @login_required(login_url='/accounts/login/')
+@user_passes_test(admin_check, login_url='/accounts/login/')
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
 
@@ -37,13 +42,14 @@ def post_edit(request, pk):
     return render(request, 'post/post_edit.html', {'form': form, 'post': post})
 
 @login_required(login_url='/accounts/login/')
-def post_success(request):
-    return render(request, 'post/post_success.html')
-
-@login_required(login_url='/accounts/login/')
+@user_passes_test(admin_check, login_url='/accounts/login/')
 def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':
         post.delete()
         return redirect('post:post_list')
     return redirect('post:post_list')
+
+@login_required(login_url='/accounts/login/')
+def post_success(request):
+    return render(request, 'post/post_success.html')
