@@ -84,6 +84,9 @@
         <label for="{{ form.password2.id_for_label }}" class="col-sm-4 col-form-label font-weight-bold">Confirm password</label>
         <div class="col-sm-8">
           {{ form.password2 }}
+          {% if form.errors.password2 %}
+            <p class="text-danger">{{ form.errors.password2 }}</p>
+          {% endif %}
         </div>
       </div>
       <div class="form-group row">
@@ -97,6 +100,7 @@
 
 <script>
   const passwordField = document.getElementById('id_password1');
+  const confirmPasswordField = document.getElementById('id_password2');
 
   // Add an event listener to the password field to check its validity on every keyup event
   passwordField.addEventListener('keyup', () => {
@@ -112,6 +116,31 @@
       passwordField.setCustomValidity('Your password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
       passwordHelpBlock.classList.remove('text-success');
       passwordHelpBlock.classList.add('text-danger');
+    }
+  });
+
+  // Add an event listener to the confirm password field to check its validity on every keyup event
+  confirmPasswordField.addEventListener('keyup', () => {
+    const password = passwordField.value;
+    const confirmPassword = confirmPasswordField.value;
+    const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+    if (password === confirmPassword) {
+      confirmPasswordField.setCustomValidity('');
+      if (confirmPasswordError) {
+        confirmPasswordError.style.display = 'none';
+      }
+    } else {
+      confirmPasswordField.setCustomValidity('Passwords do not match');
+      if (confirmPasswordError) {
+        confirmPasswordError.style.display = 'block';
+      } else {
+        const errorElement = document.createElement('p');
+        errorElement.id = 'confirmPasswordError';
+        errorElement.classList.add('text-danger');
+        errorElement.textContent = 'Passwords do not match';
+        confirmPasswordField.parentNode.appendChild(errorElement);
+      }
     }
   });
 </script>

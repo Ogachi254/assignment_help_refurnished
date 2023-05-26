@@ -3,7 +3,7 @@
 {% block title %}Log In{% endblock title %}
 
 {% block head %}
-  <style>
+<style>
     body {
       background-color: #f8f9fa;
       overflow: auto; /* Enable scrolling */
@@ -188,30 +188,38 @@
         opacity: 0;
       }
     }
-  </style>
+  .error-message {
+    background-color: #fff;
+    color: #ff0000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+</style>
 
-  <script>
-    function togglePasswordVisibility() {
-      const passwordField = document.getElementById("id_password");
-      const showPasswordCheckbox = document.getElementById("show-password-checkbox");
+<script>
+  function togglePasswordVisibility() {
+    const passwordField = document.getElementById("id_password");
+    const showPasswordCheckbox = document.getElementById("show-password-checkbox");
 
-      if (showPasswordCheckbox.checked) {
-        passwordField.type = "text";
-      } else {
-        passwordField.type = "password";
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-      const showPasswordCheckbox = document.getElementById("show-password-checkbox");
-      const passwordField = document.getElementById("id_password");
-
-      showPasswordCheckbox.checked = true;
+    if (showPasswordCheckbox.checked) {
       passwordField.type = "text";
+    } else {
+      passwordField.type = "password";
+    }
+  }
 
-      showPasswordCheckbox.addEventListener("change", togglePasswordVisibility);
-    });
-  </script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const showPasswordCheckbox = document.getElementById("show-password-checkbox");
+    const passwordField = document.getElementById("id_password");
+
+    showPasswordCheckbox.checked = true;
+    passwordField.type = "text";
+
+    showPasswordCheckbox.addEventListener("change", togglePasswordVisibility);
+  });
+</script>
 {% endblock head %}
 
 {% block content %}
@@ -222,6 +230,7 @@
   <div class="animated-element animated-element-bottom"></div>
   <div class="animated-element animated-element-top"></div>
 </div>
+
 <div class="login-container">
   <div class="login-card">
     <div class="card">
@@ -247,6 +256,11 @@
               </div>
             </div>
           </div>
+          {% if form.errors %}
+          <div class="error-message">
+            <p>You have entered the wrong password. Please try again.</p>
+          </div>
+          {% endif %}
           <div class="form-group row">
             <div class="col-12">
               <button class="btn btn-primary" type="submit">Log In</button>
