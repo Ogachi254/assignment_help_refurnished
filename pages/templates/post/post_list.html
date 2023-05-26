@@ -10,14 +10,21 @@
   <div class="row">
     {% for post in posts %}
       <div class="col-md-4">
-        <div class="post">
-          <p>Posted by: {{ post.user.username }}</p>
-          <p>{{ post.text }}</p>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">Posted by: {{ post.user.username }}</p>
+            <p class="card-text">{{ post.text }}</p>
+          </div>
           {% if post.image %}
-            <div class="image-container">
-              <img src="{{ post.image.url }}" alt="Post Image" class="post-image img-fluid">
-            </div>
+            <img src="{{ post.image.url }}" alt="Post Image" class="card-img-top">
           {% endif %}
+          <div class="card-footer">
+            {% if post.user == request.user %}
+              <a href="{% url 'post:post_edit' post.pk %}" class="btn btn-sm btn-primary">Edit</a>
+              <a href="{% url 'post:post_delete' post.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            {% endif %}
+          </div>
         </div>
       </div>
     {% empty %}
@@ -31,7 +38,7 @@
 {% endblock %}
 
 {% block footer %}
-{% include 'footer.html' %}
+  {% include 'footer.html' %}
 {% endblock %}
 
 {% block styles %}
@@ -42,30 +49,54 @@
     background-color: #f2f2f2;
   }
   
-  .post {
+  .card {
     border: 1px solid #ccc;
-    padding: 20px;
-    margin-bottom: 20px;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .image-container {
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .post-image {
+  .card-img-top {
     width: 100%;
     height: auto;
     display: block;
   }
 
+  .card-body {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .card-text {
+    margin-bottom: 0;
+  }
+
+  .card-footer {
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-top: 1px solid #ccc;
+    text-align: center;
+  }
+
   .btn-primary {
     background-color: #007bff;
     color: #fff;
-    padding: 10px 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 5px 10px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
