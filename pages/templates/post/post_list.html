@@ -5,15 +5,15 @@
 {% block content %}
   <h1>Welcome to Assignment Help!</h1>
   <p>Get expert assistance with your assignments.</p>
-  
+
   <h2>Recent Posts</h2>
   <div class="row">
     {% for post in posts %}
       <div class="col-md-4">
         <div class="card mb-4">
           <div class="card-body">
-            <h5 class="card-title">{{ post.title }}</h5>
             <p class="card-text">Posted by: {{ post.user.username }}</p>
+            <h5 class="card-title">{{ post.title }}</h5>
             <p class="card-text">{{ post.text }}</p>
           </div>
           {% if post.image %}
@@ -31,7 +31,7 @@
       <p>No posts available.</p>
     {% endfor %}
   </div>
-  
+
   <h2>Have a question?</h2>
   <p>Feel free to ask for help or share your insights!</p>
   <a href="{% url 'save_contact' %}" class="btn btn-primary">Ask a Question</a>
@@ -44,11 +44,11 @@
 {% block styles %}
 <style>
   /* Add your custom CSS styles here */
-  
+
   body {
     background-color: #f2f2f2;
   }
-  
+
   .card {
     border: 1px solid #ccc;
     border-radius: 5px;
