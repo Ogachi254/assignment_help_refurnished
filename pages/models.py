@@ -1,3 +1,4 @@
+from django.core.validators import FileExtensionValidator
 from datetime import timezone
 from django.utils import timezone
 from django.db import models
@@ -32,3 +33,18 @@ class Order(models.Model):
     def __str__(self):
         return self.order_title
 
+
+class WriterBid(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    bio = models.TextField()
+    education = models.TextField()
+    documents = models.FileField(
+        upload_to='writer_documents/',
+        validators=[
+            FileExtensionValidator(allowed_extensions=['pdf', 'doc', 'docx'])
+        ]
+    )
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"

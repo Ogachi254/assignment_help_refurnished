@@ -5,6 +5,7 @@ from .views import (
     ContactView,
     OrderView,
     success_page,
+    WriterBidView,
 )
 from django.contrib.auth.decorators import login_required
 
@@ -14,4 +15,5 @@ urlpatterns = [
     path('contact/', ContactView.as_view(), name='save_contact'),
     path('order/', login_required(OrderView.as_view()), name='save_order'),
     path('success/', success_page, name='success_page'),
+    path('writer-bid/', WriterBidView.as_view(), name='writer_bid'),
 ]

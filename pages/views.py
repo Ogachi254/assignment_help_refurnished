@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import Contact, Order
+from .models import Contact, Order, WriterBid
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -25,8 +25,26 @@ class ContactView(LoginRequiredMixin, View):
         contact = Contact(name=name, email=email, subject=subject, message=message)
         contact.save()
 
-        return redirect('success_page')
+        # Handle writer bid form submission
+        writer_first_name = request.POST.get('first_name')
+        writer_middle_name = request.POST.get('middle_name')
+        writer_last_name = request.POST.get('last_name')
+        writer_bio = request.POST.get('bio')
+        writer_education = request.POST.get('education')
+        writer_documents = request.FILES.get('documents')
 
+        writer_bid = WriterBid(
+            first_name=writer_first_name,
+            middle_name=writer_middle_name,
+            last_name=writer_last_name,
+            bio=writer_bio,
+            education=writer_education,
+            documents=writer_documents
+        )
+        writer_bid.save()
+
+        return redirect('success_page')
+    
 class OrderView(LoginRequiredMixin, View):
     login_url = '/accounts/login/'
 
@@ -59,3 +77,30 @@ class OrderView(LoginRequiredMixin, View):
 
 def success_page(request):
     return render(request, 'success.html')
+
+class WriterBidView(LoginRequiredMixin, View):
+    login_url = '/accounts/login/'
+
+    def get(self, request):
+        return render(request, 'writer_bid.html')
+
+    def post(self, request):
+        first_name = request.POST.get('first_name')
+        middle_name = request.POST.get('middle_name')
+        last_name = request.POST.get('last_name')
+        bio = request.POST.get('bio')
+        education = request.POST.get('education')
+        documents = request.FILES.get('documents')
+
+        writer_bid = WriterBid(
+            first_name=first_name,
+            middle_name=middle_name,
+            last_name=last_name,
+            bio=bio,
+            education=education,
+            documents=documents
+        )
+        writer_bid.save()
+
+        return redirect('success_page')
+

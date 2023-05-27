@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contact, Order
+from .models import Contact, Order, WriterBid
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
@@ -9,3 +9,6 @@ class ContactAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     pass
 
+@admin.register(WriterBid)
+class WriterBidAdmin(admin.ModelAdmin):
+    pass

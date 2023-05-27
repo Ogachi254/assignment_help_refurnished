@@ -37,6 +37,17 @@
     margin-right: 0;
   }
 
+  /* Added styles for compressed list */
+  .compressed-list .nav-link {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .compressed-list .navbar-nav {
+    flex-direction: row;
+  }
+
   @media (max-width: 767.98px) {
     .signup-link {
       margin-top: 16px;
@@ -70,7 +81,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto{% if user.is_authenticated %} compressed-list{% endif %}">
       <li class="nav-item">
         <a class="nav-link home-link" href="{% url 'home' %}">Home</a>
       </li>
@@ -95,6 +106,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'post:post_create' %}">Create Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'writer_bid' %}">Writer Bid</a>
         </li>
       {% else %}
         <li class="nav-item">
